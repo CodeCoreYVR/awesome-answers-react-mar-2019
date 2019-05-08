@@ -1,5 +1,6 @@
 import React from "react";
 import { QuestionShowPage } from "./QuestionShowPage";
+import { QuestionIndexPage } from "./QuestionIndexPage";
 
 // In React application, we create a component that acts as the
 // "root" or the entry point to all of our other components.
@@ -7,6 +8,7 @@ import { QuestionShowPage } from "./QuestionShowPage";
 function App() {
   return (
     <div>
+      <QuestionIndexPage />
       <QuestionShowPage />
     </div>
   );
