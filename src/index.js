@@ -22,16 +22,18 @@ function AnswerDetails() {
   );
 }
 
-function QuestionDetails() {
+function QuestionDetails(props) {
   return (
     <div>
-      <h2>What is your favourite color?</h2>
+      <h2>{props.title}</h2>
       <p>
-        Red, green, blue, magenta, etc. <br />
-        By Bridge Troll
+        {props.body}
+        <br />
+        By {props.author && props.author.full_name}
       </p>
       <p>
-        <small>Seen 10 time(s)</small> – <small>Created 10 days ago</small>
+        <small>Seen {props.view_count} time(s)</small> –{" "}
+        <small>Created at {props.created_at}</small>
       </p>
     </div>
   );
@@ -43,7 +45,13 @@ function QuestionDetails() {
 function QuestionShowPage() {
   return (
     <main>
-      <QuestionDetails />
+      <QuestionDetails
+        title="What's your favourite colour?"
+        body="Red, green, blue, seafoam green, turquoise, etc."
+        author={{ full_name: "Bridge Troll" }}
+        view_count={100}
+        created_at={new Date().toLocaleString()}
+      />
       <AnswerDetails />
     </main>
   );
