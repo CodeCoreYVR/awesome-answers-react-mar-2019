@@ -10,13 +10,15 @@ import * as serviceWorker from "./serviceWorker";
 // Your React component's names must be in PascalCase. Those whose
 // names do not begin with an upper case letter will interpreted
 // as plain HTML tag.
-function AnswerDetails() {
+function AnswerDetails(props) {
   return (
     <div>
       <p>
-        Red. <br />
-        By Ulises Wisozk <br />
-        <small>Answered 2 days ago</small>
+        {props.body}
+        <br />
+        By {props.author.full_name}
+        <br />
+        <small>Answered {props.created_at}</small>
       </p>
     </div>
   );
@@ -52,7 +54,11 @@ function QuestionShowPage() {
         view_count={100}
         created_at={new Date().toLocaleString()}
       />
-      <AnswerDetails />
+      <AnswerDetails
+        body="Red."
+        author={{ full_name: "King Arthur" }}
+        created_at={new Date().toLocaleString()}
+      />
     </main>
   );
 }
