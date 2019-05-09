@@ -1,6 +1,9 @@
 import React from "react";
-import { QuestionDetails } from "./QuestionDetails";
 import { AnswerDetails } from "./AnswerDetails";
+import { AnswerList } from "./AnswerList";
+import { QuestionDetails } from "./QuestionDetails";
+
+import questionData from "../questionData";
 
 // To structure our application, we will create components
 // that simulate the pages of web application. These are meant
@@ -15,11 +18,8 @@ export function QuestionShowPage() {
         view_count={100}
         created_at={new Date().toLocaleString()}
       />
-      <AnswerDetails
-        body="Red."
-        author={{ full_name: "King Arthur" }}
-        created_at={new Date().toLocaleString()}
-      />
+      <h2>Answers</h2>
+      <AnswerList answers={questionData.answers} />
     </main>
   );
 }
