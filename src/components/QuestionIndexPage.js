@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import data from "../questionsData";
+import { Question } from "../api/question";
 
 export class QuestionIndexPage extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    questions: []
+  };
 
-    this.state = {
-      questions: data
-    };
+  componentDidMount() {
+    Question.all().then(questions => {
+      this.setState({ questions });
+    });
   }
 
   deleteQuestion(id) {
