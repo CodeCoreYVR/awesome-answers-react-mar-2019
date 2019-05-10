@@ -10,8 +10,8 @@ function App() {
   return (
     <div>
       <Clock />
-      <QuestionIndexPage />
       <QuestionShowPage />
+      <QuestionIndexPage />
     </div>
   );
 }

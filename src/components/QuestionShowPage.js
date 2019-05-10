@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { AnswerDetails } from "./AnswerDetails";
 import { AnswerList } from "./AnswerList";
 import { QuestionDetails } from "./QuestionDetails";
-
-import questionData from "../questionData";
 import { Question } from "../api/question";
 
 // To structure our application, we will create components
@@ -17,9 +15,19 @@ export class QuestionShowPage extends Component {
     super(props);
 
     this.state = {
-      question: questionData
+      question: null
       // answers: []
     };
+  }
+
+  componentDidMount() {
+    Question.one(558).then(question => {
+      this.setState({
+        // question: question
+        // 👇 syntax sugar for 👆
+        question
+      });
+    });
   }
 
   deleteQuestion() {
