@@ -27,6 +27,8 @@ export class QuestionShowPage extends Component {
     // `match` holds a property that contains a URL's params.
     const id = this.props.match.params.id;
 
+    console.log(this.props);
+
     Question.one(id).then(question => {
       this.setState({
         // question: question
