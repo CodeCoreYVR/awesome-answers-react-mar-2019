@@ -37,9 +37,14 @@ export function NavBar(props) {
           <span onClick={handleSignout}>Sign Out</span>
         </React.Fragment>
       ) : (
-        <NavLink exact to="/sign_in">
-          Sign In
-        </NavLink>
+        <>
+          <NavLink exact to="/sign_in">
+            Sign In
+          </NavLink>
+          <NavLink exact to="/sign_up">
+            Sign Up
+          </NavLink>
+        </>
       )}
     </nav>
   );
