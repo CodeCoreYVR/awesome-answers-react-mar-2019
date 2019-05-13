@@ -1,10 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Clock } from './Clock';
+import { Session } from '../api/session';
 
 export function NavBar(props) {
   // console.log('NavBar props.currentUser', props.currentUser);
-  const { currentUser } = props;
+  const { currentUser, onSignOut } = props;
+  function handleSignout() {
+    Session.destroy().then(() => {
+      // ... do something after we destroy session
+      onSignOut();
+    });
+  }
   return (
     <nav className="NavBar">
       <Clock />
@@ -27,6 +34,7 @@ export function NavBar(props) {
           <NavLink exact to="/questions">
             Questions
           </NavLink>
+          <span onClick={handleSignout}>Sign Out</span>
         </React.Fragment>
       ) : (
         <NavLink exact to="/sign_in">

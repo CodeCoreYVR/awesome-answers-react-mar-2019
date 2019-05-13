@@ -11,11 +11,13 @@ export function SignInPage(props) {
       email: fD.get('email'),
       password: fD.get('password'),
     };
-    Session.create(signInParams).then(() => {
-      onSignIn();
-      // Once we are successfully signed in, and the app has a user in our state
-      // navigate to '/questions'
-      props.history.push('/questions');
+    Session.create(signInParams).then((response) => {
+      if (response.id) {
+        onSignIn();
+        // Once we are successfully signed in, and the app has a user in our state
+        // navigate to '/questions'
+        props.history.push('/questions');
+      }
     });
   }
   return (

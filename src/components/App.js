@@ -20,6 +20,11 @@ class App extends Component {
     // this.signInUser = this.signInUser.bind(this);
   }
 
+  componentDidMount() {
+    // When our app starts, fetch the current user if there is one
+    this.getCurrentUser();
+  }
+
   // When creating a method that uses the keyword this, sometimes you need to be careful
   // `this` will lose its context when it is "destructured" from its object
   // What we mean by that is when we pass it as a prop to another component
@@ -37,7 +42,17 @@ class App extends Component {
   // Or defined our method like we did below using an arrow function
   getCurrentUser = () => {
     return User.current().then((user) => {
-      this.setState({ currentUser: user });
+      if (user.id) {
+        this.setState({ currentUser: user });
+      }
+    });
+  };
+
+  signOut = () => {
+    // This method removes the current user from the react app, effectively
+    // signing out the user
+    this.setState({
+      currentUser: null,
     });
   };
 
@@ -46,7 +61,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <header>
-            <NavBar currentUser={this.state.currentUser} />
+            <NavBar currentUser={this.state.currentUser} onSignOut={this.signOut} />
           </header>
           {/* 
             <Route> components inside <Switch> behave differently.
