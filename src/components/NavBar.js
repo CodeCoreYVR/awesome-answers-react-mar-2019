@@ -18,6 +18,9 @@ export function NavBar(props) {
       <NavLink exact to="/">
         Welcome
       </NavLink>
+      <NavLink exact to="/questions">
+        Questions
+      </NavLink>
       {/* To conditionally render in React, you can use a ternary operator */}
       {currentUser ? (
         <React.Fragment>
@@ -30,9 +33,6 @@ export function NavBar(props) {
           <span>{currentUser.full_name}</span>
           <NavLink exact to="/questions/new">
             Ask
-          </NavLink>
-          <NavLink exact to="/questions">
-            Questions
           </NavLink>
           <span onClick={handleSignout}>Sign Out</span>
         </React.Fragment>
