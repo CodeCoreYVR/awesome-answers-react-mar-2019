@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-export const AuthRoute = (props) => {
+export const AuthRoute = props => {
   // We rename the component variable to Component because
   // we want to make clear that Component is a user defined
   // react component, and is named with PascalCase,
@@ -28,12 +28,12 @@ export const AuthRoute = (props) => {
 };
 
 // Destructuring example
-const object = {
-  name: 'Max',
-  age: 77,
-};
+// const object = {
+//   name: 'Max',
+//   age: 77,
+// };
 
-const { name: firstName, age } = object;
+// const { name: firstName, age } = object;
 // now I have a variable called firstName, and NOT a variable called name
 // name === undefined
 // firstName === 'Max'
